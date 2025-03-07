@@ -202,11 +202,11 @@ function App() {
                     TS
                   </div>
                   <div className="w-10 h-10 rounded-full bg-primary border-2 border-white flex items-center justify-center text-xs font-bold text-white">
-                    +5
+                    +2
                   </div>
                 </div>
                 <div className="ml-4 text-sm text-gray-500">
-                  <span className="font-bold text-gray-800">500+</span> companies trust Vitera
+                  Early access partners
                 </div>
               </div>
             </div>
@@ -262,54 +262,54 @@ function App() {
             <div className="bg-white rounded-xl p-6 shadow-lg shadow-gray-200/50 border border-gray-100 hover:shadow-xl hover:border-primary/20 transition-all duration-300 flex flex-col">
               <div className="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-6">
                 <Users size={28} />
-                  </div>
+              </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">Perfect Talent Matching</h3>
               <p className="text-gray-600 flex-grow">
-                  Industry-specific experts with a 100% match in technical and cultural fit, reducing rework and delays.
+                Industry-specific experts with a 100% match in technical fit, reducing rework and delays.
               </p>
               <div className="mt-6 pt-6 border-t border-gray-100">
                 <a href="#" className="text-primary font-medium flex items-center hover:underline">
                   Learn more <ChevronRight size={16} className="ml-1" />
                 </a>
               </div>
-              </div>
-
-            <div className="bg-white rounded-xl p-6 shadow-lg shadow-gray-200/50 border border-gray-100 hover:shadow-xl hover:border-primary/20 transition-all duration-300 flex flex-col">
-              <div className="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-6">
-                <DollarSign size={28} />
-                  </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Cost Savings</h3>
-              <p className="text-gray-600 flex-grow">
-                  Transparent pricing that saves up to 30% compared to traditional agencies by eliminating intermediary
-                  margins.
-              </p>
-              <div className="mt-6 pt-6 border-t border-gray-100">
-                <a href="#" className="text-primary font-medium flex items-center hover:underline">
-                  Learn more <ChevronRight size={16} className="ml-1" />
-                </a>
-              </div>
-              </div>
+            </div>
 
             <div className="bg-white rounded-xl p-6 shadow-lg shadow-gray-200/50 border border-gray-100 hover:shadow-xl hover:border-primary/20 transition-all duration-300 flex flex-col">
               <div className="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-6">
                 <CheckCircle size={28} />
-                  </div>
+              </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">Quality Assurance</h3>
               <p className="text-gray-600 flex-grow">
-                  Absolute confidence through verified credentials and detailed past projects, ensuring consistent
-                  delivery and quality.
+                Absolute confidence through verified credentials and detailed past projects, ensuring consistent
+                delivery and quality.
               </p>
               <div className="mt-6 pt-6 border-t border-gray-100">
                 <a href="#" className="text-primary font-medium flex items-center hover:underline">
                   Learn more <ChevronRight size={16} className="ml-1" />
                 </a>
               </div>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 shadow-lg shadow-gray-200/50 border border-gray-100 hover:shadow-xl hover:border-primary/20 transition-all duration-300 flex flex-col">
+              <div className="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-6">
+                <DollarSign size={28} />
               </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Cost Savings</h3>
+              <p className="text-gray-600 flex-grow">
+                Transparent pricing that saves up to 30% compared to traditional agencies by eliminating intermediary
+                margins.
+              </p>
+              <div className="mt-6 pt-6 border-t border-gray-100">
+                <a href="#" className="text-primary font-medium flex items-center hover:underline">
+                  Learn more <ChevronRight size={16} className="ml-1" />
+                </a>
+              </div>
+            </div>
 
             <div className="bg-white rounded-xl p-6 shadow-lg shadow-gray-200/50 border border-gray-100 hover:shadow-xl hover:border-primary/20 transition-all duration-300 flex flex-col">
               <div className="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-6">
                 <Clock size={28} />
-                  </div>
+              </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">Agile Flexibility</h3>
               <p className="text-gray-600 flex-grow">
                 Agile contracts with automated capacity and availability tracking, enabling you to scale engagements up
@@ -411,8 +411,7 @@ function App() {
                     <div className="ml-6">
                       <h3 className="text-2xl font-bold text-gray-900 mb-4">Get Matched</h3>
                       <p className="text-gray-600 text-lg">
-                      Our advanced matching algorithm identifies the perfect freelancers with 100% technical and
-                      cultural fit for your specific industry needs.
+                      Our advanced matching algorithm identifies the perfect freelancers with 100% technical fit for your specific industry needs.
                     </p>
                       <ul className="mt-6 space-y-3">
                         <li className="flex items-start">
@@ -421,7 +420,7 @@ function App() {
                         </li>
                         <li className="flex items-start">
                           <Check size={20} className="text-primary flex-shrink-0 mt-1" />
-                          <span className="ml-3 text-gray-600">Technical and cultural fit assessment</span>
+                          <span className="ml-3 text-gray-600">Technical assessment</span>
                         </li>
                         <li className="flex items-start">
                           <Check size={20} className="text-primary flex-shrink-0 mt-1" />
@@ -626,7 +625,7 @@ function App() {
         </div>
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 text-center">
             <div className="p-6">
               <div className="text-4xl md:text-5xl font-bold mb-2">30%</div>
               <div className="text-white/80">Average Cost Savings</div>
@@ -638,10 +637,6 @@ function App() {
             <div className="p-6">
               <div className="text-4xl md:text-5xl font-bold mb-2">48h</div>
               <div className="text-white/80">Average Matching Time</div>
-            </div>
-            <div className="p-6">
-              <div className="text-4xl md:text-5xl font-bold mb-2">500+</div>
-              <div className="text-white/80">Satisfied Clients</div>
             </div>
           </div>
         </div>
