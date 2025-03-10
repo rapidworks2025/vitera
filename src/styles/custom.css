@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&display=swap");
+
 @keyframes fade-in-up {
   from {
     opacity: 0;
@@ -35,4 +37,8 @@
 
 .bg-300\% {
   background-size: 300% 300%;
+}
+
+.font-heading {
+  font-family: 'Poppins', sans-serif;
 } 

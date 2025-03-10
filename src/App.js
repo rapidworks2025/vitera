@@ -16,6 +16,7 @@ import {
   Check,
 } from "react-feather"
 import { useInView } from 'react-intersection-observer';
+import VLOGO from '../src/assets/vteralogo.png'
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -51,7 +52,7 @@ function App() {
           <div className="flex justify-between items-center">
             <div className="flex items-center">
               <div className="flex-shrink-0 flex items-center">
-                <span className="text-primary font-bold text-2xl">Vitera</span>
+                <img src={VLOGO} alt="Vitera Logo" className="h-8 w-auto" />
               </div>
               <div className="hidden md:ml-10 md:flex md:space-x-8">
                 <a
@@ -121,13 +122,13 @@ function App() {
               >
                 Benefits
               </a>
-              <a
+              {/* <a
                 href="#testimonials"
                 className="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:bg-gray-50 hover:border-primary hover:text-primary transition-colors duration-200"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Testimonials
-              </a>
+              </a> */}
               <div className="mt-6 space-y-3 pb-3">
                 <a
                   href="#contact"
@@ -161,7 +162,7 @@ function App() {
               </div> */}
               
               {/* Improve typography and add gradient text */}
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight font-display">
                 Find the perfect{" "}
                 <span className="inline-block">
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-primary bg-300% animate-gradient">
@@ -169,12 +170,11 @@ function App() {
                   </span>
                 </span>{" "}
                 for your projects
-              </h1>
+                </h1>
               
               <p className="mt-6 text-lg text-gray-600 max-w-xl mx-auto md:mx-0">
-                Connect directly with top-tier programmers, eliminating intermediaries and saving up to{" "}
-                <span className="font-bold text-primary">30%</span> on costs while ensuring a perfect match for your
-                project needs.
+                Connect with world-class IT experts, avoid costly intermediaries and save up to{" "}
+                <span className="font-bold text-primary">30%</span> of costs while ensuring a perfect match with your project requirements.
               </p>
               <div className="mt-8 flex flex-col sm:flex-row justify-center md:justify-start gap-4">
                     <a
@@ -186,24 +186,24 @@ function App() {
                     <a
                       href="#how-it-works"
                   className="px-8 py-4 bg-white text-primary border-2 border-primary rounded-lg font-medium text-base hover:bg-gray-50 transition-all duration-300 flex items-center justify-center"
-                >
+                    >
                   Learn More <ArrowRight size={18} className="ml-2" />
-                </a>
-              </div>
+                    </a>
+                  </div>
               <div className="mt-10 flex items-center justify-center md:justify-start">
                 <div className="flex -space-x-2">
                   <div className="w-10 h-10 rounded-full bg-gray-200 border-2 border-white flex items-center justify-center text-xs font-bold text-gray-600">
                     JD
-                  </div>
+                </div>
                   <div className="w-10 h-10 rounded-full bg-gray-300 border-2 border-white flex items-center justify-center text-xs font-bold text-gray-600">
                     KM
-                  </div>
+              </div>
                   <div className="w-10 h-10 rounded-full bg-gray-400 border-2 border-white flex items-center justify-center text-xs font-bold text-gray-600">
                     TS
-                  </div>
+          </div>
                   <div className="w-10 h-10 rounded-full bg-primary border-2 border-white flex items-center justify-center text-xs font-bold text-white">
                     +2
-                  </div>
+        </div>
                 </div>
                 <div className="ml-4 text-sm text-gray-500">
                   Early access partners
@@ -214,9 +214,9 @@ function App() {
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl transform rotate-3"></div>
               <img
                 className="relative rounded-2xl shadow-2xl transform -rotate-3 hover:rotate-0 transition-transform duration-500"
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
-                alt="Team collaboration"
-              />
+            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+            alt="Team collaboration"
+          />
               <div className="absolute -bottom-6 -right-6 bg-white rounded-xl shadow-lg p-4 transform rotate-3">
                 <div className="flex items-center">
                   <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white">
@@ -234,7 +234,7 @@ function App() {
 
         {/* Brands Section */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-t border-gray-100">
-          <p className="text-center text-gray-500 text-sm font-medium mb-8">TRUSTED BY INNOVATIVE COMPANIES</p>
+          <p className="text-center text-gray-500 text-sm font-medium mb-8">TRUSTED BY THE FOLLOWING COMPANIES</p>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 items-center justify-items-center opacity-70">
             <div className="h-8 w-24 bg-gray-300 rounded"></div>
             <div className="h-8 w-24 bg-gray-300 rounded"></div>
@@ -249,10 +249,7 @@ function App() {
       <div className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">
-            <div className="inline-flex items-center px-4 py-2 bg-accent/10 rounded-full text-accent text-sm font-medium mb-6">
-              <span className="mr-2">•</span> Value Proposition
-            </div>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight">Why Choose Vitera?</h2>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight font-display">Why Choose Vitera?</h2>
             <p className="mt-4 text-xl text-gray-600">
               We eliminate intermediaries, saving you up to 30% while connecting you with perfectly matched talent.
             </p>
@@ -262,7 +259,7 @@ function App() {
             <div className="bg-white rounded-xl p-6 shadow-lg shadow-gray-200/50 border border-gray-100 hover:shadow-xl hover:border-primary/20 transition-all duration-300 flex flex-col">
               <div className="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-6">
                 <Users size={28} />
-              </div>
+                  </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">Perfect Talent Matching</h3>
               <p className="text-gray-600 flex-grow">
                 Industry-specific experts with a 100% match in technical fit, reducing rework and delays.
@@ -272,39 +269,39 @@ function App() {
                   Learn more <ChevronRight size={16} className="ml-1" />
                 </a>
               </div>
-            </div>
+              </div>
 
             <div className="bg-white rounded-xl p-6 shadow-lg shadow-gray-200/50 border border-gray-100 hover:shadow-xl hover:border-primary/20 transition-all duration-300 flex flex-col">
               <div className="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-6">
                 <CheckCircle size={28} />
-              </div>
+                  </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">Quality Assurance</h3>
               <p className="text-gray-600 flex-grow">
-                Absolute confidence through verified credentials and detailed past projects, ensuring consistent
-                delivery and quality.
+                  Absolute confidence through verified credentials and detailed past projects, ensuring consistent
+                  delivery and quality.
               </p>
               <div className="mt-6 pt-6 border-t border-gray-100">
                 <a href="#" className="text-primary font-medium flex items-center hover:underline">
                   Learn more <ChevronRight size={16} className="ml-1" />
                 </a>
               </div>
-            </div>
+              </div>
 
             <div className="bg-white rounded-xl p-6 shadow-lg shadow-gray-200/50 border border-gray-100 hover:shadow-xl hover:border-primary/20 transition-all duration-300 flex flex-col">
               <div className="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-6">
                 <DollarSign size={28} />
-              </div>
+                  </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">Cost Savings</h3>
               <p className="text-gray-600 flex-grow">
-                Transparent pricing that saves up to 30% compared to traditional agencies by eliminating intermediary
-                margins.
+                  Transparent pricing that saves up to 30% compared to traditional agencies by eliminating intermediary
+                  margins.
               </p>
               <div className="mt-6 pt-6 border-t border-gray-100">
                 <a href="#" className="text-primary font-medium flex items-center hover:underline">
                   Learn more <ChevronRight size={16} className="ml-1" />
                 </a>
               </div>
-            </div>
+          </div>
 
             <div className="bg-white rounded-xl p-6 shadow-lg shadow-gray-200/50 border border-gray-100 hover:shadow-xl hover:border-primary/20 transition-all duration-300 flex flex-col">
               <div className="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-6">
@@ -329,10 +326,7 @@ function App() {
       <div id="how-it-works" className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">
-            <div className="inline-flex items-center px-4 py-2 bg-accent/10 rounded-full text-accent text-sm font-medium mb-6">
-              <span className="mr-2">•</span> Process
-            </div>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight">How Vitera Works</h2>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight font-display">How Vitera Works</h2>
             <p className="mt-4 text-xl text-gray-600">
               A streamlined process to connect you with the perfect freelance talent.
             </p>
@@ -345,8 +339,8 @@ function App() {
                 <div className="order-2 md:order-1">
                   <div className="flex items-start">
                     <div className="flex-shrink-0 h-14 w-14 rounded-full bg-primary text-white flex items-center justify-center text-xl font-bold shadow-lg shadow-primary/20">
-                      1
-                    </div>
+                        1
+                      </div>
                     <div className="ml-6">
                       <h3 className="text-2xl font-bold text-gray-900 mb-4">Define Your Needs</h3>
                       <p className="text-gray-600 text-lg">
@@ -367,7 +361,7 @@ function App() {
                           <span className="ml-3 text-gray-600">Timeline and budget planning</span>
                         </li>
                       </ul>
-                    </div>
+                  </div>
                   </div>
                 </div>
                 <div className="order-1 md:order-2 flex items-center justify-center">
@@ -394,14 +388,14 @@ function App() {
                     <div className="relative bg-white p-6 rounded-2xl shadow-xl transform -rotate-3 hover:rotate-0 transition-all duration-500 border border-gray-100">
                       <div className="w-full h-48 bg-gray-100 rounded-lg mb-4 flex items-center justify-center">
                         <Users size={64} className="text-primary/40" />
-                      </div>
+                    </div>
                       <div className="space-y-2">
                         <div className="h-4 bg-gray-200 rounded-full w-3/4"></div>
                         <div className="h-4 bg-gray-200 rounded-full w-1/2"></div>
                         <div className="h-4 bg-gray-200 rounded-full w-5/6"></div>
+                  </div>
                       </div>
                     </div>
-                  </div>
                 </div>
                 <div>
                   <div className="flex items-start">
@@ -458,7 +452,7 @@ function App() {
                           <span className="ml-3 text-gray-600">Real-time progress tracking</span>
                         </li>
                       </ul>
-                    </div>
+                  </div>
                   </div>
                 </div>
                 <div className="order-1 md:order-2 flex items-center justify-center">
@@ -485,14 +479,14 @@ function App() {
                     <div className="relative bg-white p-6 rounded-2xl shadow-xl transform -rotate-3 hover:rotate-0 transition-all duration-500 border border-gray-100">
                       <div className="w-full h-48 bg-gray-100 rounded-lg mb-4 flex items-center justify-center">
                         <Shield size={64} className="text-primary/40" />
-                      </div>
+                    </div>
                       <div className="space-y-2">
                         <div className="h-4 bg-gray-200 rounded-full w-3/4"></div>
                         <div className="h-4 bg-gray-200 rounded-full w-1/2"></div>
                         <div className="h-4 bg-gray-200 rounded-full w-5/6"></div>
+                  </div>
                       </div>
                     </div>
-                  </div>
                 </div>
                 <div>
                   <div className="flex items-start">
@@ -521,11 +515,11 @@ function App() {
                       </ul>
                     </div>
                   </div>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            {/* Connecting line */}
+              {/* Connecting line */}
             <div className="absolute left-7 md:left-1/2 top-0 bottom-0 w-0.5 bg-primary/20 -ml-px hidden md:block"></div>
           </div>
         </div>
@@ -535,10 +529,7 @@ function App() {
       <div id="benefits" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">
-            <div className="inline-flex items-center px-4 py-2 bg-accent/10 rounded-full text-accent text-sm font-medium mb-6">
-              <span className="mr-2">•</span> Benefits
-            </div>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight font-display">
               Solving Your Freelance Challenges
             </h2>
             <p className="mt-4 text-xl text-gray-600">
@@ -642,14 +633,14 @@ function App() {
         </div>
       </div>
 
-      {/* Testimonials Section */}
+      {/* Testimonials Section - Temporarily Hidden
       <div id="testimonials" className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">
             <div className="inline-flex items-center px-4 py-2 bg-accent/10 rounded-full text-accent text-sm font-medium mb-6">
               <span className="mr-2">•</span> Testimonials
             </div>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight">What Our Clients Say</h2>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight font-display">What Our Clients Say</h2>
             <p className="mt-4 text-xl text-gray-600">
               Hear from companies that have transformed their approach to working with freelance talent.
             </p>
@@ -752,6 +743,7 @@ function App() {
           </div>
         </div>
       </div>
+      */}
 
       {/* CTA Section */}
       <div id="contact" className="py-24 bg-white">
@@ -760,29 +752,302 @@ function App() {
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full transform translate-x-1/3 -translate-y-1/3"></div>
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/10 rounded-full transform -translate-x-1/3 translate-y-1/3"></div>
 
-            <div className="relative z-10 text-center">
-              <h2 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight mb-6">
-                Ready to transform how you work with freelancers?
+            <div className="relative z-10">
+              <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight font-display mb-6">
+                  Get in Touch
           </h2>
-              <p className="text-xl text-white/80 mb-10 max-w-3xl mx-auto">
-                Start saving time and money today. Join 500+ companies already benefiting from our platform.
-              </p>
+                <p className="text-xl text-white/80 max-w-3xl mx-auto">
+                  Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
+                </p>
+              </div>
 
-              <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <div className="grid md:grid-cols-2 gap-12">
+                {/* Contact Form */}
+                <div className="bg-white rounded-xl p-8 shadow-lg">
+                  <form
+                    action="https://formspree.io/f/contact@vitera.it"
+                    method="POST"
+                    className="space-y-6"
+                  >
+                    <div>
+                      <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                        Name
+                      </label>
+                      <input
+                        type="text"
+                        name="name"
+                        id="name"
+                        required
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors duration-200"
+                        placeholder="Your name"
+                      />
+            </div>
+
+                    <div>
+                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                        Email
+                      </label>
+                      <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        required
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors duration-200"
+                        placeholder="your@email.com"
+                      />
+                    </div>
+
+                    <div>
+                      <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-1">
+                        Company
+                      </label>
+                      <input
+                        type="text"
+                        name="company"
+                        id="company"
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors duration-200"
+                        placeholder="Your company"
+                      />
+                    </div>
+
+                    <div>
+                      <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                        Message
+                      </label>
+                      <textarea
+                        name="message"
+                        id="message"
+                        required
+                        rows={4}
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors duration-200"
+                        placeholder="How can we help you?"
+                      ></textarea>
+                    </div>
+
+                    <button
+                      type="submit"
+                      className="w-full bg-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors duration-300 shadow-lg shadow-primary/20"
+                    >
+                      Send Message
+                    </button>
+                  </form>
+                </div>
+
+                {/* Schedule Meeting Section */}
+                <div className="flex flex-col justify-center">
+                  <div className="text-white space-y-8">
+                    <h3 className="text-2xl font-bold">Prefer a quick chat?</h3>
+                    <p className="text-white/80">
+                      Schedule a 15-minute introduction call to discuss how we can help you find the perfect talent for your projects.
+                    </p>
+                    
+                    <div className="space-y-4">
               <a
-                href="#"
-                  className="px-8 py-4 bg-white text-primary rounded-lg font-medium text-base hover:bg-gray-100 transition-all duration-300 shadow-xl shadow-black/10 transform hover:-translate-y-1"
-              >
-                Get Started
+                  href="https://calendly.com/vitera/intro"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center w-full px-6 py-3 bg-white text-primary rounded-lg font-medium hover:bg-gray-100 transition-all duration-300 shadow-xl shadow-black/10"
+                >
+                  <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 2V5" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                    <path d="M16 2V5" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                    <path d="M3 8H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                    <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" strokeWidth="2"/>
+                  </svg>
+                  Schedule a Meeting
               </a>
-              <a
-                href="#"
-                  className="px-8 py-4 bg-transparent text-white border-2 border-white rounded-lg font-medium text-base hover:bg-white/10 transition-all duration-300"
-              >
-                  Schedule a Demo
-              </a>
+            </div>
+              
+                    <div className="pt-8 border-t border-white/20 space-y-6">
+                      <div className="flex items-center">
+                        <svg className="w-6 h-6 mr-3" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M3 8L10.89 13.26C11.2187 13.4793 11.6049 13.5963 12 13.5963C12.3951 13.5963 12.7813 13.4793 13.11 13.26L21 8M5 19H19C19.5304 19 20.0391 18.7893 20.4142 18.4142C20.7893 18.0391 21 17.5304 21 17V7C21 6.46957 20.7893 5.96086 20.4142 5.58579C20.0391 5.21071 19.5304 5 19 5H5C4.46957 5 3.96086 5.21071 3.58579 5.58579C3.21071 5.96086 3 6.46957 3 7V17C3 17.5304 3.21071 18.0391 3.58579 18.4142C3.96086 18.7893 4.46957 19 5 19Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+                        <a href="mailto:contact@vitera.it" className="text-white hover:text-white/90">
+                          contact@vitera.it
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Privacy Policy Section */}
+      <div id="privacy-policy" className="py-24 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight font-display mb-4">
+              Privacy Policy
+            </h2>
+            <p className="text-lg text-gray-600">Last updated: {new Date().toLocaleDateString()}</p>
+          </div>
+          
+          <div className="prose prose-lg max-w-none text-gray-600">
+            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">1. Introduction</h3>
+            <p>
+              At Vitera, we respect your privacy and are committed to protecting your personal data. This privacy policy will inform you about how we look after your personal data when you visit our website and tell you about your privacy rights and how the law protects you.
+            </p>
+            
+            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">2. The Data We Collect</h3>
+            <p>
+              We may collect, use, store and transfer different kinds of personal data about you which we have grouped together as follows:
+            </p>
+            <ul className="list-disc pl-6 mt-4 space-y-2">
+              <li><strong>Identity Data</strong> includes first name, last name, username or similar identifier.</li>
+              <li><strong>Contact Data</strong> includes email address and telephone numbers.</li>
+              <li><strong>Technical Data</strong> includes internet protocol (IP) address, browser type and version, time zone setting and location, browser plug-in types and versions, operating system and platform, and other technology on the devices you use to access this website.</li>
+              <li><strong>Usage Data</strong> includes information about how you use our website and services.</li>
+            </ul>
+            
+            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">3. How We Use Your Data</h3>
+            <p>
+              We will only use your personal data when the law allows us to. Most commonly, we will use your personal data in the following circumstances:
+            </p>
+            <ul className="list-disc pl-6 mt-4 space-y-2">
+              <li>Where we need to perform the contract we are about to enter into or have entered into with you.</li>
+              <li>Where it is necessary for our legitimate interests (or those of a third party) and your interests and fundamental rights do not override those interests.</li>
+              <li>Where we need to comply with a legal obligation.</li>
+            </ul>
+            
+            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">4. Data Security</h3>
+            <p>
+              We have put in place appropriate security measures to prevent your personal data from being accidentally lost, used or accessed in an unauthorized way, altered or disclosed. In addition, we limit access to your personal data to those employees, agents, contractors and other third parties who have a business need to know.
+            </p>
+            
+            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">5. Your Legal Rights</h3>
+            <p>
+              Under certain circumstances, you have rights under data protection laws in relation to your personal data, including the right to:
+            </p>
+            <ul className="list-disc pl-6 mt-4 space-y-2">
+              <li>Request access to your personal data.</li>
+              <li>Request correction of your personal data.</li>
+              <li>Request erasure of your personal data.</li>
+              <li>Object to processing of your personal data.</li>
+              <li>Request restriction of processing your personal data.</li>
+              <li>Request transfer of your personal data.</li>
+              <li>Right to withdraw consent.</li>
+            </ul>
+            
+            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">6. Contact Us</h3>
+            <p>
+              If you have any questions about this privacy policy or our privacy practices, please contact us at: <a href="mailto:contact@vitera.it" className="text-primary hover:underline">contact@vitera.it</a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Terms of Service Section */}
+      <div id="terms" className="py-24 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight font-display mb-4">
+              Terms of Service
+            </h2>
+            <p className="text-lg text-gray-600">Last updated: {new Date().toLocaleDateString()}</p>
+          </div>
+          
+          <div className="prose prose-lg max-w-none text-gray-600">
+            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">1. Agreement to Terms</h3>
+            <p>
+              By accessing or using our platform, you agree to be bound by these Terms of Service. If you disagree with any part of the terms, you may not access the service.
+            </p>
+            
+            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">2. Use of Services</h3>
+            <p>
+              Our platform provides a service that connects companies with freelance talent. You may use our services only as permitted by these terms and any applicable laws.
+            </p>
+            
+            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">3. User Accounts</h3>
+            <p>
+              When you create an account with us, you guarantee that the information you provide is accurate, complete, and current at all times. Inaccurate, incomplete, or obsolete information may result in the immediate termination of your account on the service.
+            </p>
+            
+            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">4. Intellectual Property</h3>
+            <p>
+              The service and its original content, features, and functionality are and will remain the exclusive property of Vitera and its licensors. The service is protected by copyright, trademark, and other laws.
+            </p>
+            
+            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">5. Termination</h3>
+            <p>
+              We may terminate or suspend your account and bar access to the service immediately, without prior notice or liability, under our sole discretion, for any reason whatsoever and without limitation, including but not limited to a breach of the Terms.
+            </p>
+            
+            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">6. Limitation of Liability</h3>
+            <p>
+              In no event shall Vitera, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from your access to or use of or inability to access or use the service.
+            </p>
+            
+            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">7. Changes to Terms</h3>
+            <p>
+              We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material, we will provide at least 30 days' notice prior to any new terms taking effect.
+            </p>
+            
+            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">8. Contact Us</h3>
+            <p>
+              If you have any questions about these Terms, please contact us at: <a href="mailto:contact@vitera.it" className="text-primary hover:underline">contact@vitera.it</a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Impressum Section */}
+      <div id="impressum" className="py-24 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight font-display mb-4">
+              Impressum
+            </h2>
+            <p className="text-lg text-gray-600">Legal Information</p>
+          </div>
+          
+          <div className="prose prose-lg max-w-none text-gray-600">
+            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">Company Information</h3>
+            <p>
+              <strong>Vitera GmbH</strong><br />
+              Musterstraße 123<br />
+              10115 Berlin<br />
+              Germany
+            </p>
+            
+            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">Contact</h3>
+            <p>
+              Email: <a href="mailto:contact@vitera.it" className="text-primary hover:underline">contact@vitera.it</a><br />
+              Phone: +49 30 1234567<br />
+            </p>
+            
+            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">Registration</h3>
+            <p>
+              Commercial Register: Amtsgericht Berlin-Charlottenburg<br />
+              Registration Number: HRB 123456<br />
+              VAT Identification Number: DE123456789
+            </p>
+            
+            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">Responsible for Content</h3>
+            <p>
+              According to § 55 Abs. 2 RStV:<br />
+              Max Mustermann<br />
+              Musterstraße 123<br />
+              10115 Berlin<br />
+              Germany
+            </p>
+            
+            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">Dispute Resolution</h3>
+            <p>
+              The European Commission provides a platform for online dispute resolution (OS): <a href="https://ec.europa.eu/consumers/odr" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">https://ec.europa.eu/consumers/odr</a>
+            </p>
+            <p>
+              We are not willing or obliged to participate in dispute resolution proceedings before a consumer arbitration board.
+            </p>
+            
+            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">Liability for Content</h3>
+            <p>
+              As a service provider, we are responsible for our own content on these pages according to § 7 Abs.1 TMG (German Telemedia Act). According to §§ 8 to 10 TMG, however, we are not obliged to monitor transmitted or stored third-party information or to investigate circumstances that indicate illegal activity.
+            </p>
           </div>
         </div>
       </div>
@@ -805,12 +1070,6 @@ function App() {
                       d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.75-1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
                       clipRule="evenodd"
                     />
-                  </svg>
-                </a>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
-                  <span className="sr-only">Twitter</span>
-                  <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
                   </svg>
                 </a>
               </div>
@@ -852,16 +1111,6 @@ function App() {
                     </li>
                     <li>
                   <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
-                        Blog
-                      </a>
-                    </li>
-                    <li>
-                  <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
-                    Careers
-                      </a>
-                    </li>
-                    <li>
-                  <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
                     Contact
                       </a>
                     </li>
@@ -897,6 +1146,28 @@ function App() {
           </div>
         </div>
       </footer>
+
+      {/* Floating Schedule Button */}
+      <div className="fixed bottom-8 right-8 z-50">
+        <div className="group relative">
+          <div className="absolute bottom-full right-0 mb-2 w-48 p-2 bg-white rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+            <p className="text-sm text-gray-600 text-center">Schedule a 15-min intro call</p>
+        </div>
+        <a
+            href="https://calendly.com/vitera/intro"
+          target="_blank"
+          rel="noopener noreferrer"
+            className="bg-primary hover:bg-primary/90 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex items-center justify-center"
+        >
+          <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 2V5" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+            <path d="M16 2V5" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+            <path d="M3 8H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+            <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" strokeWidth="2"/>
+          </svg>
+        </a>
+        </div>
+      </div>
     </div>
   )
 }
