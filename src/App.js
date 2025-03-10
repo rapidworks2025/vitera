@@ -17,6 +17,7 @@ import {
 } from "react-feather"
 import { useInView } from 'react-intersection-observer';
 import VLOGO from '../src/assets/vteralogo.png'
+import { Link } from 'react-router-dom'
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -52,7 +53,9 @@ function App() {
           <div className="flex justify-between items-center">
             <div className="flex items-center">
               <div className="flex-shrink-0 flex items-center">
-                <img src={VLOGO} alt="Vitera Logo" className="h-8 w-auto" />
+                <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                  <img src={VLOGO} alt="Vitera Logo" className="h-8 w-auto" />
+                </Link>
               </div>
               <div className="hidden md:ml-10 md:flex md:space-x-8">
                 <a
@@ -70,12 +73,12 @@ function App() {
                 >
                   Benefits
                 </a>
-                <a
+                {/* <a
                   href="#testimonials"
                   className="border-transparent text-gray-800 hover:text-primary inline-flex items-center px-1 pt-1 border-b-2 hover:border-primary text-sm font-medium transition-colors duration-200"
                 >
                   Testimonials
-                </a>
+                </a> */}
               </div>
             </div>
             <div className="hidden md:ml-6 md:flex md:items-center">
@@ -877,178 +880,25 @@ function App() {
         </div>
       </div>
 
-      {/* Privacy Policy Section */}
-      <div id="privacy-policy" className="py-24 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight font-display mb-4">
-              Privacy Policy
-            </h2>
-            <p className="text-lg text-gray-600">Last updated: {new Date().toLocaleDateString()}</p>
-          </div>
-          
-          <div className="prose prose-lg max-w-none text-gray-600">
-            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">1. Introduction</h3>
-            <p>
-              At Vitera, we respect your privacy and are committed to protecting your personal data. This privacy policy will inform you about how we look after your personal data when you visit our website and tell you about your privacy rights and how the law protects you.
-            </p>
-            
-            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">2. The Data We Collect</h3>
-            <p>
-              We may collect, use, store and transfer different kinds of personal data about you which we have grouped together as follows:
-            </p>
-            <ul className="list-disc pl-6 mt-4 space-y-2">
-              <li><strong>Identity Data</strong> includes first name, last name, username or similar identifier.</li>
-              <li><strong>Contact Data</strong> includes email address and telephone numbers.</li>
-              <li><strong>Technical Data</strong> includes internet protocol (IP) address, browser type and version, time zone setting and location, browser plug-in types and versions, operating system and platform, and other technology on the devices you use to access this website.</li>
-              <li><strong>Usage Data</strong> includes information about how you use our website and services.</li>
-            </ul>
-            
-            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">3. How We Use Your Data</h3>
-            <p>
-              We will only use your personal data when the law allows us to. Most commonly, we will use your personal data in the following circumstances:
-            </p>
-            <ul className="list-disc pl-6 mt-4 space-y-2">
-              <li>Where we need to perform the contract we are about to enter into or have entered into with you.</li>
-              <li>Where it is necessary for our legitimate interests (or those of a third party) and your interests and fundamental rights do not override those interests.</li>
-              <li>Where we need to comply with a legal obligation.</li>
-            </ul>
-            
-            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">4. Data Security</h3>
-            <p>
-              We have put in place appropriate security measures to prevent your personal data from being accidentally lost, used or accessed in an unauthorized way, altered or disclosed. In addition, we limit access to your personal data to those employees, agents, contractors and other third parties who have a business need to know.
-            </p>
-            
-            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">5. Your Legal Rights</h3>
-            <p>
-              Under certain circumstances, you have rights under data protection laws in relation to your personal data, including the right to:
-            </p>
-            <ul className="list-disc pl-6 mt-4 space-y-2">
-              <li>Request access to your personal data.</li>
-              <li>Request correction of your personal data.</li>
-              <li>Request erasure of your personal data.</li>
-              <li>Object to processing of your personal data.</li>
-              <li>Request restriction of processing your personal data.</li>
-              <li>Request transfer of your personal data.</li>
-              <li>Right to withdraw consent.</li>
-            </ul>
-            
-            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">6. Contact Us</h3>
-            <p>
-              If you have any questions about this privacy policy or our privacy practices, please contact us at: <a href="mailto:contact@vitera.it" className="text-primary hover:underline">contact@vitera.it</a>
-            </p>
-          </div>
+      {/* Floating Schedule Button */}
+      <div className="fixed bottom-8 right-8 z-50">
+        <div className="group relative">
+          <div className="absolute bottom-full right-0 mb-2 w-48 p-2 bg-white rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+            <p className="text-sm text-gray-600 text-center">Schedule a 15-min intro call</p>
         </div>
-      </div>
-
-      {/* Terms of Service Section */}
-      <div id="terms" className="py-24 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight font-display mb-4">
-              Terms of Service
-            </h2>
-            <p className="text-lg text-gray-600">Last updated: {new Date().toLocaleDateString()}</p>
-          </div>
-          
-          <div className="prose prose-lg max-w-none text-gray-600">
-            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">1. Agreement to Terms</h3>
-            <p>
-              By accessing or using our platform, you agree to be bound by these Terms of Service. If you disagree with any part of the terms, you may not access the service.
-            </p>
-            
-            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">2. Use of Services</h3>
-            <p>
-              Our platform provides a service that connects companies with freelance talent. You may use our services only as permitted by these terms and any applicable laws.
-            </p>
-            
-            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">3. User Accounts</h3>
-            <p>
-              When you create an account with us, you guarantee that the information you provide is accurate, complete, and current at all times. Inaccurate, incomplete, or obsolete information may result in the immediate termination of your account on the service.
-            </p>
-            
-            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">4. Intellectual Property</h3>
-            <p>
-              The service and its original content, features, and functionality are and will remain the exclusive property of Vitera and its licensors. The service is protected by copyright, trademark, and other laws.
-            </p>
-            
-            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">5. Termination</h3>
-            <p>
-              We may terminate or suspend your account and bar access to the service immediately, without prior notice or liability, under our sole discretion, for any reason whatsoever and without limitation, including but not limited to a breach of the Terms.
-            </p>
-            
-            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">6. Limitation of Liability</h3>
-            <p>
-              In no event shall Vitera, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from your access to or use of or inability to access or use the service.
-            </p>
-            
-            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">7. Changes to Terms</h3>
-            <p>
-              We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material, we will provide at least 30 days' notice prior to any new terms taking effect.
-            </p>
-            
-            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">8. Contact Us</h3>
-            <p>
-              If you have any questions about these Terms, please contact us at: <a href="mailto:contact@vitera.it" className="text-primary hover:underline">contact@vitera.it</a>
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Impressum Section */}
-      <div id="impressum" className="py-24 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight font-display mb-4">
-              Impressum
-            </h2>
-            <p className="text-lg text-gray-600">Legal Information</p>
-          </div>
-          
-          <div className="prose prose-lg max-w-none text-gray-600">
-            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">Company Information</h3>
-            <p>
-              <strong>Vitera GmbH</strong><br />
-              Musterstraße 123<br />
-              10115 Berlin<br />
-              Germany
-            </p>
-            
-            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">Contact</h3>
-            <p>
-              Email: <a href="mailto:contact@vitera.it" className="text-primary hover:underline">contact@vitera.it</a><br />
-              Phone: +49 30 1234567<br />
-            </p>
-            
-            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">Registration</h3>
-            <p>
-              Commercial Register: Amtsgericht Berlin-Charlottenburg<br />
-              Registration Number: HRB 123456<br />
-              VAT Identification Number: DE123456789
-            </p>
-            
-            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">Responsible for Content</h3>
-            <p>
-              According to § 55 Abs. 2 RStV:<br />
-              Max Mustermann<br />
-              Musterstraße 123<br />
-              10115 Berlin<br />
-              Germany
-            </p>
-            
-            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">Dispute Resolution</h3>
-            <p>
-              The European Commission provides a platform for online dispute resolution (OS): <a href="https://ec.europa.eu/consumers/odr" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">https://ec.europa.eu/consumers/odr</a>
-            </p>
-            <p>
-              We are not willing or obliged to participate in dispute resolution proceedings before a consumer arbitration board.
-            </p>
-            
-            <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">Liability for Content</h3>
-            <p>
-              As a service provider, we are responsible for our own content on these pages according to § 7 Abs.1 TMG (German Telemedia Act). According to §§ 8 to 10 TMG, however, we are not obliged to monitor transmitted or stored third-party information or to investigate circumstances that indicate illegal activity.
-            </p>
-          </div>
+        <a
+            href="https://calendly.com/vitera/intro"
+          target="_blank"
+          rel="noopener noreferrer"
+            className="bg-primary hover:bg-primary/90 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex items-center justify-center"
+        >
+          <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 2V5" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+            <path d="M16 2V5" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+            <path d="M3 8H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+            <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" strokeWidth="2"/>
+          </svg>
+        </a>
         </div>
       </div>
 
@@ -1121,22 +971,22 @@ function App() {
               <h3 className="text-sm font-semibold text-gray-300 tracking-wider uppercase mb-4">Legal</h3>
               <ul className="space-y-3">
                 <li>
-                  <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
+                  <a href="/privacy-policy" className="text-gray-400 hover:text-white transition-colors duration-200">
                     Privacy Policy
-                      </a>
-                    </li>
-                    <li>
-                  <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
+                  </a>
+                </li>
+                <li>
+                  <a href="/terms" className="text-gray-400 hover:text-white transition-colors duration-200">
                     Terms of Service
-                      </a>
-                    </li>
-                    <li>
-                  <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
-                        Cookie Policy
-                      </a>
-                    </li>
-                  </ul>
-                </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="/impressum" className="text-gray-400 hover:text-white transition-colors duration-200">
+                    Impressum
+                  </a>
+                </li>
+              </ul>
+            </div>
               </div>
 
           <div className="mt-12 pt-8 border-t border-gray-800">
@@ -1146,28 +996,6 @@ function App() {
           </div>
         </div>
       </footer>
-
-      {/* Floating Schedule Button */}
-      <div className="fixed bottom-8 right-8 z-50">
-        <div className="group relative">
-          <div className="absolute bottom-full right-0 mb-2 w-48 p-2 bg-white rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-            <p className="text-sm text-gray-600 text-center">Schedule a 15-min intro call</p>
-        </div>
-        <a
-            href="https://calendly.com/vitera/intro"
-          target="_blank"
-          rel="noopener noreferrer"
-            className="bg-primary hover:bg-primary/90 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex items-center justify-center"
-        >
-          <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8 2V5" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-            <path d="M16 2V5" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-            <path d="M3 8H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-            <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" strokeWidth="2"/>
-          </svg>
-        </a>
-        </div>
-      </div>
     </div>
   )
 }
