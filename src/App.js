@@ -19,6 +19,10 @@ import { useInView } from 'react-intersection-observer';
 import VLOGO from '../src/assets/vteralogo.png'
 import { Link } from 'react-router-dom'
 
+// Add Google Fonts import for Bebas Neue and Roboto
+import '@fontsource/bebas-neue';
+import '@fontsource/roboto';
+
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
@@ -164,18 +168,18 @@ function App() {
                 <span className="animate-pulse mr-2">•</span> Talent Matching Platform
               </div> */}
               
-              {/* Improve typography and add gradient text */}
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight font-display">
-                Find the perfect{" "}
+              {/* Improve typography and add gradient text with Bebas Neue font */}
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight font-['Bebas_Neue']">
+                FIND THE PERFECT{" "}
                 <span className="inline-block">
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-primary bg-300% animate-gradient">
-                    talent
+                    TALENT
                   </span>
                 </span>{" "}
-                for your projects
+                FOR YOUR PROJECTS
                 </h1>
               
-              <p className="mt-6 text-lg text-gray-600 max-w-xl mx-auto md:mx-0">
+              <p className="mt-6 text-lg text-gray-600 max-w-xl mx-auto md:mx-0 font-['Roboto']">
                 Connect with world-class IT experts, avoid costly intermediaries and save up to{" "}
                 <span className="font-bold text-primary">30%</span> of costs while ensuring a perfect match with your project requirements.
               </p>
@@ -252,8 +256,8 @@ function App() {
       <div className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight font-display">Why Choose Vitera?</h2>
-            <p className="mt-4 text-xl text-gray-600">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight font-['Bebas_Neue']">WHY CHOOSE VITERA?</h2>
+            <p className="mt-4 text-xl text-gray-600 font-['Roboto']">
               We eliminate intermediaries, saving you up to 30% while connecting you with perfectly matched talent.
             </p>
           </div>
@@ -329,8 +333,8 @@ function App() {
       <div id="how-it-works" className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight font-display">How Vitera Works</h2>
-            <p className="mt-4 text-xl text-gray-600">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight font-['Bebas_Neue']">HOW VITERA WORKS</h2>
+            <p className="mt-4 text-xl text-gray-600 font-['Roboto']">
               A streamlined process to connect you with the perfect freelance talent.
             </p>
           </div>
@@ -532,10 +536,10 @@ function App() {
       <div id="benefits" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight font-display">
-              Solving Your Freelance Challenges
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight font-['Bebas_Neue']">
+              SOLVING YOUR FREELANCE CHALLENGES
             </h2>
-            <p className="mt-4 text-xl text-gray-600">
+            <p className="mt-4 text-xl text-gray-600 font-['Roboto']">
               Vitera addresses the common pain points companies face when working with external talent.
             </p>
           </div>
@@ -757,10 +761,10 @@ function App() {
 
             <div className="relative z-10">
               <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight font-display mb-6">
-                  Get in Touch
+              <h2 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight font-['Bebas_Neue'] mb-6">
+                  GET IN TOUCH
           </h2>
-                <p className="text-xl text-white/80 max-w-3xl mx-auto">
+                <p className="text-xl text-white/80 max-w-3xl mx-auto font-['Roboto']">
                   Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
                 </p>
               </div>
