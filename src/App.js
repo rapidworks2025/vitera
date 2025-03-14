@@ -851,7 +851,7 @@ function App() {
                     
                     <div className="space-y-4">
               <a
-                  href="https://calendly.com/vitera/intro"
+                  href="https://calendly.com/vitera/demo"
                   target="_blank"
                   rel="noopener noreferrer"
                         className="inline-flex items-center justify-center w-full px-6 py-3 bg-white text-primary rounded-lg font-medium hover:bg-gray-100 transition-all duration-300 shadow-xl shadow-black/10"
@@ -891,7 +891,7 @@ function App() {
             <p className="text-sm text-gray-600 text-center">Schedule a 15-min intro call</p>
         </div>
         <a
-            href="https://calendly.com/vitera/intro"
+            href="https://calendly.com/vitera/demo"
           target="_blank"
           rel="noopener noreferrer"
             className="bg-primary hover:bg-primary/90 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex items-center justify-center"
