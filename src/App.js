@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { Analytics } from '@vercel/analytics/react';
 import {
   CheckCircle,
   Users,
@@ -17,6 +18,9 @@ import {
 } from "react-feather"
 import { useInView } from 'react-intersection-observer';
 import VLOGO from '../src/assets/vteralogo.png'
+import SNRT from '../src/assets/snrt.jpg'
+import INNOSTEP from '../src/assets/innostep.jpg'
+import RAPIDWORKS from '../src/assets/rocket-512.png'
 import { Link } from 'react-router-dom'
 
 // Add Google Fonts import for Bebas Neue and Roboto
@@ -535,25 +539,6 @@ function App() {
                   {t.hero.learnMore} <ArrowRight size={18} className="ml-2" />
                 </a>
               </div>
-              <div className="mt-10 flex items-center justify-center md:justify-start">
-                <div className="flex -space-x-2">
-                  <div className="w-10 h-10 rounded-full bg-gray-200 border-2 border-white flex items-center justify-center text-xs font-bold text-gray-600">
-                    JD
-                  </div>
-                  <div className="w-10 h-10 rounded-full bg-gray-300 border-2 border-white flex items-center justify-center text-xs font-bold text-gray-600">
-                    KM
-                  </div>
-                  <div className="w-10 h-10 rounded-full bg-gray-400 border-2 border-white flex items-center justify-center text-xs font-bold text-gray-600">
-                    TS
-                  </div>
-                  <div className="w-10 h-10 rounded-full bg-primary border-2 border-white flex items-center justify-center text-xs font-bold text-white">
-                    +2
-                  </div>
-                </div>
-                <div className="ml-4 text-sm text-gray-500">
-                  {t.hero.earlyAccess}
-                </div>
-              </div>
             </div>
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl transform rotate-3"></div>
@@ -580,12 +565,16 @@ function App() {
         {/* Brands Section */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-t border-gray-100">
           <p className="text-center text-gray-500 text-sm font-medium mb-8">{t.brands.title}</p>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 items-center justify-items-center opacity-70">
-            <div className="h-8 w-24 bg-gray-300 rounded"></div>
-            <div className="h-8 w-24 bg-gray-300 rounded"></div>
-            <div className="h-8 w-24 bg-gray-300 rounded"></div>
-            <div className="h-8 w-24 bg-gray-300 rounded"></div>
-            <div className="h-8 w-24 bg-gray-300 rounded hidden lg:block"></div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center justify-items-center opacity-90">
+            <a href="http://www.snrt.tech" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity duration-300">
+              <img src={SNRT} alt="SNRT" className="h-12 object-contain" />
+            </a>
+            <a href="https://innostep-it.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity duration-300">
+              <img src={INNOSTEP} alt="Innostep" className="h-12 object-contain" />
+            </a>
+            <a href="https://rapidworks.vercel.app/" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity duration-300">
+              <img src={RAPIDWORKS} alt="RapidWorks" className="h-12 object-contain" />
+            </a>
           </div>
         </div>
       </div>
@@ -1192,6 +1181,9 @@ function App() {
           </div>
         </div>
       </footer>
+      
+      {/* Add Vercel Analytics */}
+      <Analytics />
     </div>
   )
 }
