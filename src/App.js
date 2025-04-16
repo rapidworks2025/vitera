@@ -27,6 +27,10 @@ import { Link } from 'react-router-dom'
 import '@fontsource/bebas-neue';
 import '@fontsource/roboto';
 
+// Import the new components
+import Modal from './components/Modal'; // Adjust path if needed
+import ImpressumContent from './components/ImpressumContent'; // Adjust path if needed
+
 // Add translations object
 const translations = {
   en: {
@@ -372,6 +376,7 @@ function App() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [language, setLanguage] = useState('en')
   const t = translations[language]
+  const [isImpressumModalOpen, setIsImpressumModalOpen] = useState(false); // State for modal
 
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -392,6 +397,17 @@ function App() {
       window.removeEventListener("scroll", handleScroll)
     }
   }, [])
+
+  // Function to open the modal
+  const openImpressumModal = (e) => {
+    e.preventDefault(); // Prevent default link behavior
+    setIsImpressumModalOpen(true);
+  };
+
+  // Function to close the modal
+  const closeImpressumModal = () => {
+    setIsImpressumModalOpen(false);
+  };
 
   return (
     <div className="min-h-screen bg-white text-text">
@@ -1166,7 +1182,11 @@ function App() {
                   </a>
                 </li>
                 <li>
-                  <a href="/impressum" className="text-gray-400 hover:text-white transition-colors duration-200">
+                  <a 
+                    href="#" 
+                    onClick={openImpressumModal} 
+                    className="text-gray-400 hover:text-white transition-colors duration-200"
+                  >
                     {t.footer.links.legal.impressum}
                   </a>
                 </li>
@@ -1184,6 +1204,15 @@ function App() {
       
       {/* Add Vercel Analytics */}
       <Analytics />
+
+      {/* Impressum Modal */}
+      <Modal 
+        isOpen={isImpressumModalOpen} 
+        onClose={closeImpressumModal} 
+        title={t.footer.links.legal.impressum} // Use translated title
+      >
+        <ImpressumContent t={t} />
+      </Modal>
     </div>
   )
 }
