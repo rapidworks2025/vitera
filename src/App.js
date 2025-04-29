@@ -31,6 +31,9 @@ import '@fontsource/roboto';
 import Modal from './components/Modal'; // Adjust path if needed
 import ImpressumContent from './components/ImpressumContent'; // Adjust path if needed
 
+// Import the Airtable function
+import { submitContactToAirtable } from './utils/airtable'; // Adjust path if needed
+
 // Add translations object
 const translations = {
   en: {
@@ -376,7 +379,17 @@ function App() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [language, setLanguage] = useState('en')
   const t = translations[language]
-  const [isImpressumModalOpen, setIsImpressumModalOpen] = useState(false); // State for modal
+  const [isImpressumModalOpen, setIsImpressumModalOpen] = useState(false);
+
+  // State for Contact Form
+  const [contactFormState, setContactFormState] = useState({
+    name: '',
+    email: '',
+    company: '',
+    message: '',
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState('idle'); // 'idle', 'submitting', 'success', 'error'
 
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -407,6 +420,37 @@ function App() {
   // Function to close the modal
   const closeImpressumModal = () => {
     setIsImpressumModalOpen(false);
+  };
+
+  // Handle contact form input changes
+  const handleContactInputChange = (e) => {
+    const { name, value } = e.target;
+    setContactFormState(prevState => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
+  // Handle contact form submission
+  const handleContactSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus('submitting');
+
+    try {
+      await submitContactToAirtable(contactFormState);
+      setSubmitStatus('success');
+      // Clear form on success
+      setContactFormState({ name: '', email: '', company: '', message: '' }); 
+      // Optional: Show success message for a few seconds
+      setTimeout(() => setSubmitStatus('idle'), 3000); 
+    } catch (error) {
+      setSubmitStatus('error');
+      // Optional: Show error message for a few seconds
+      setTimeout(() => setSubmitStatus('idle'), 5000);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -974,8 +1018,7 @@ function App() {
               <div className="grid md:grid-cols-2 gap-12">
                 <div className="bg-white rounded-xl p-8 shadow-lg">
                   <form
-                    action="https://formspree.io/f/contact@vitera.it"
-                    method="POST"
+                    onSubmit={handleContactSubmit}
                     className="space-y-6"
                   >
                     <div>
@@ -987,8 +1030,11 @@ function App() {
                         name="name"
                         id="name"
                         required
+                        value={contactFormState.name}
+                        onChange={handleContactInputChange}
                         className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors duration-200"
                         placeholder={t.contact.form.namePlaceholder}
+                        disabled={isSubmitting}
                       />
                     </div>
 
@@ -1001,8 +1047,11 @@ function App() {
                         name="email"
                         id="email"
                         required
+                        value={contactFormState.email}
+                        onChange={handleContactInputChange}
                         className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors duration-200"
                         placeholder={t.contact.form.emailPlaceholder}
+                        disabled={isSubmitting}
                       />
                     </div>
 
@@ -1014,8 +1063,11 @@ function App() {
                         type="text"
                         name="company"
                         id="company"
+                        value={contactFormState.company}
+                        onChange={handleContactInputChange}
                         className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors duration-200"
                         placeholder={t.contact.form.companyPlaceholder}
+                        disabled={isSubmitting}
                       />
                     </div>
 
@@ -1028,17 +1080,28 @@ function App() {
                         id="message"
                         required
                         rows={4}
+                        value={contactFormState.message}
+                        onChange={handleContactInputChange}
                         className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors duration-200"
                         placeholder={t.contact.form.messagePlaceholder}
+                        disabled={isSubmitting}
                       ></textarea>
                     </div>
 
                     <button
                       type="submit"
-                      className="w-full bg-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors duration-300 shadow-lg shadow-primary/20"
+                      className={`w-full bg-primary text-white px-6 py-3 rounded-lg font-medium transition-colors duration-300 shadow-lg shadow-primary/20 ${isSubmitting ? 'opacity-50 cursor-not-allowed' : 'hover:bg-primary/90'}`}
+                      disabled={isSubmitting}
                     >
-                      {t.contact.form.send}
+                      {isSubmitting ? 'Sending...' : t.contact.form.send}
                     </button>
+
+                    {submitStatus === 'success' && (
+                      <p className="text-sm text-green-600 mt-2 text-center">Message sent successfully!</p>
+                    )}
+                    {submitStatus === 'error' && (
+                      <p className="text-sm text-red-600 mt-2 text-center">Something went wrong. Please try again.</p>
+                    )}
                   </form>
                 </div>
 
@@ -1209,7 +1272,7 @@ function App() {
       <Modal 
         isOpen={isImpressumModalOpen} 
         onClose={closeImpressumModal} 
-        title={t.footer.links.legal.impressum} // Use translated title
+        title={t.footer.links.legal.impressum}
       >
         <ImpressumContent t={t} />
       </Modal>
