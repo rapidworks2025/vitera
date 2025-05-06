@@ -15,12 +15,18 @@ import {
   Star,
   ArrowRight,
   Check,
+  User,
+  Mail,
+  Phone,
+  AlertTriangle,
 } from "react-feather"
 import { useInView } from 'react-intersection-observer';
 import VLOGO from '../src/assets/vteralogo.png'
 import SNRT from '../src/assets/snrt.jpg'
 import INNOSTEP from '../src/assets/innostep.jpg'
 import RAPIDWORKS from '../src/assets/rocket-512.png'
+import AMADEUS_IMG from '../src/assets/amadeus.jpeg'; // Import Amadeus's image
+import LUKAS_IMG from '../src/assets/Lukas.jpeg'; // Import Lukas's image
 import { Link } from 'react-router-dom'
 
 // Add Google Fonts import for Bebas Neue and Roboto
@@ -40,8 +46,8 @@ const translations = {
     nav: {
       howItWorks: "How It Works",
       benefits: "Benefits",
+      aboutUs: "About Us",
       contactUs: "Contact Us",
-      getStarted: "Get Started"
     },
     hero: {
       title: "FIND THE PERFECT TALENT FOR YOUR PROJECTS",
@@ -149,20 +155,12 @@ const translations = {
     },
     footer: {
       description: "Connecting companies with exceptional freelance talent, without the intermediaries.",
-      solutions: "Solutions",
       company: "Company",
       legal: "Legal",
       rights: "All rights reserved.",
       links: {
-        solutions: {
-          talentMatching: "Talent Matching",
-          contractManagement: "Contract Management",
-          skillVerification: "Skill Verification",
-          projectManagement: "Project Management"
-        },
         company: {
           about: "About",
-          contact: "Contact"
         },
         legal: {
           privacy: "Privacy Policy",
@@ -202,14 +200,25 @@ const translations = {
     },
     floatingButton: {
       tooltip: "Schedule a 15-min intro call"
+    },
+    aboutUs: {
+      title: "ABOUT VITERA",
+      subtitle: "We're not just another platform; we're your partners in building exceptional teams. Vitera was born from a desire to simplify how companies connect with expert IT talent, cutting through the noise and inefficiency.",
+      whyViteraTitle: "Why We Started Vitera",
+      whyViteraDescription: "Having experienced the challenges firsthand – the lengthy searches, the uncertainty of skill-matches, and the opaque costs of traditional agencies – we knew there had to be a better way. Vitera is our answer: a transparent, direct, and cost-effective bridge between your projects and the world-class expertise needed to make them succeed. We understand your need for quality, speed, and reliability because we've been there.",
+      meetTheFounders: "Meet the Founders",
+      founderOneName: "Amadeus Küppers",
+      founderOneTitle: "Co-founder",
+      founderTwoName: "Lukas Braun",
+      founderTwoTitle: "Co-founder",
     }
   },
   de: {
     nav: {
       howItWorks: "So funktioniert's",
       benefits: "Vorteile",
+      aboutUs: "Über Uns",
       contactUs: "Kontakt",
-      getStarted: "Jetzt starten"
     },
     hero: {
       title: "FINDEN SIE DAS PERFEKTE TALENT FÜR IHRE PROJEKTE",
@@ -317,20 +326,12 @@ const translations = {
     },
     footer: {
       description: "Wir verbinden Unternehmen mit außergewöhnlichen freiberuflichen Talenten, ohne Zwischenhändler.",
-      solutions: "Lösungen",
       company: "Unternehmen",
       legal: "Rechtliches",
       rights: "Alle Rechte vorbehalten.",
       links: {
-        solutions: {
-          talentMatching: "Talent-Matching",
-          contractManagement: "Vertragsmanagement",
-          skillVerification: "Qualifikationsprüfung",
-          projectManagement: "Projektmanagement"
-        },
         company: {
           about: "Über uns",
-          contact: "Kontakt"
         },
         legal: {
           privacy: "Datenschutzerklärung",
@@ -370,6 +371,17 @@ const translations = {
     },
     floatingButton: {
       tooltip: "15-minütiges Einführungsgespräch planen"
+    },
+    aboutUs: {
+      title: "ÜBER VITERA",
+      subtitle: "Wir sind nicht nur eine weitere Plattform; wir sind Ihre Partner beim Aufbau außergewöhnlicher Teams. Vitera entstand aus dem Wunsch, die Verbindung von Unternehmen mit IT-Experten zu vereinfachen und dabei Lärm und Ineffizienz zu beseitigen.",
+      whyViteraTitle: "Warum wir Vitera gegründet haben",
+      whyViteraDescription: "Nachdem wir die Herausforderungen aus erster Hand erlebt hatten – die langwierigen Suchen, die Unsicherheit bei der Qualifikationsübereinstimmung und die undurchsichtigen Kosten traditioneller Agenturen – wussten wir, dass es einen besseren Weg geben musste. Vitera ist unsere Antwort: eine transparente, direkte und kosteneffektive Brücke zwischen Ihren Projekten und der erstklassigen Expertise, die für deren Erfolg notwendig ist. Wir verstehen Ihr Bedürfnis nach Qualität, Geschwindigkeit und Zuverlässigkeit, denn wir waren selbst in dieser Situation.",
+      meetTheFounders: "Lernen Sie die Gründer kennen",
+      founderOneName: "Amadeus Küppers",
+      founderOneTitle: "Mitgründer",
+      founderTwoName: "Lukas Braun",
+      founderTwoTitle: "Mitgründer",
     }
   }
 };
@@ -440,13 +452,11 @@ function App() {
     try {
       await submitContactToAirtable(contactFormState);
       setSubmitStatus('success');
-      // Clear form on success
       setContactFormState({ name: '', email: '', company: '', message: '' }); 
-      // Optional: Show success message for a few seconds
       setTimeout(() => setSubmitStatus('idle'), 3000); 
     } catch (error) {
+      console.error("Error submitting form:", error);
       setSubmitStatus('error');
-      // Optional: Show error message for a few seconds
       setTimeout(() => setSubmitStatus('idle'), 5000);
     } finally {
       setIsSubmitting(false);
@@ -483,6 +493,12 @@ function App() {
                 >
                   {t.nav.benefits}
                 </a>
+                <a
+                  href="#about-us"
+                  className="border-transparent text-gray-800 hover:text-primary inline-flex items-center px-1 pt-1 border-b-2 hover:border-primary text-sm font-medium transition-colors duration-200"
+                >
+                  {t.nav.aboutUs}
+                </a>
               </div>
             </div>
             <div className="hidden md:ml-6 md:flex md:items-center">
@@ -502,12 +518,6 @@ function App() {
                 className="bg-white text-primary border-2 border-primary px-4 py-2 rounded-md text-sm font-medium hover:bg-primary hover:text-white transition-colors duration-300 mr-4"
               >
                 {t.nav.contactUs}
-              </a>
-              <a
-                href="#contact"
-                className="bg-primary text-white px-5 py-2.5 rounded-md text-sm font-medium hover:bg-primary/90 transition-colors duration-300 shadow-lg shadow-primary/20"
-              >
-                {t.nav.getStarted}
               </a>
             </div>
             
@@ -551,18 +561,19 @@ function App() {
               >
                 {t.nav.benefits}
               </a>
+              <a
+                href="#about-us"
+                className="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:bg-gray-50 hover:border-primary hover:text-primary transition-colors duration-200"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {t.nav.aboutUs}
+              </a>
               <div className="mt-6 space-y-3 pb-3">
                 <a
                   href="#contact"
                   className="block w-full bg-white text-primary border-2 border-primary px-4 py-2 rounded-md text-sm font-medium hover:bg-primary hover:text-white transition-colors duration-300 text-center"
                 >
                   {t.nav.contactUs}
-                </a>
-                <a
-                  href="#contact"
-                  className="block w-full bg-primary text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-primary/90 transition-colors duration-300 shadow-lg shadow-primary/20 text-center"
-                >
-                  {t.nav.getStarted}
                 </a>
               </div>
             </div>
@@ -978,6 +989,75 @@ function App() {
         </div>
       </div>
 
+      {/* About Us Section - NEW */}
+      <div id="about-us" className="py-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight font-['Bebas_Neue']">
+              {t.aboutUs.title}
+            </h2>
+            <div className="w-24 h-1 bg-primary mx-auto mt-4 mb-6"></div> {/* Decorative underline */}
+            <p className="mt-4 text-xl text-gray-600 font-['Roboto']">
+              {t.aboutUs.subtitle}
+            </p>
+          </div>
+
+          <div className="mt-16 max-w-4xl mx-auto bg-white p-8 md:p-12 rounded-xl shadow-xl border-l-4 border-primary"> {/* Added left border accent */}
+            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center font-['Bebas_Neue']">
+              {t.aboutUs.whyViteraTitle}
+            </h3>
+            <p className="text-gray-700 text-lg leading-relaxed font-['Roboto']">
+              {t.aboutUs.whyViteraDescription}
+            </p>
+          </div>
+          
+          <div className="mt-20">
+            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-12 text-center font-['Bebas_Neue']">
+              {t.aboutUs.meetTheFounders}
+            </h3>
+            <div className="grid md:grid-cols-2 gap-10 lg:gap-16 items-start">
+              {/* Founder Card 1: Amadeus Küppers */}
+              <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 group hover:-translate-y-1 border border-gray-100 text-center flex flex-col items-center">
+                <img 
+                  src={AMADEUS_IMG} 
+                  alt={t.aboutUs.founderOneName} 
+                  className="w-32 h-32 rounded-full mb-6 object-cover shadow-md" 
+                />
+                <h4 className="text-xl font-bold text-gray-900">{t.aboutUs.founderOneName}</h4>
+                <p className="text-primary font-medium mb-3">{t.aboutUs.founderOneTitle}</p>
+                <div className="space-y-2 text-sm text-gray-600">
+                  <a href="tel:+4917655728669" className="flex items-center justify-center hover:text-primary transition-colors">
+                    <Phone size={14} className="mr-2" /> +49 176 55728669
+                  </a>
+                  <a href="mailto:amadeus@vitera.it" className="flex items-center justify-center hover:text-primary transition-colors">
+                    <Mail size={14} className="mr-2" /> amadeus@vitera.it
+                  </a>
+                </div>
+              </div>
+
+              {/* Founder Card 2: Lukas Braun */}
+              <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 group hover:-translate-y-1 border border-gray-100 text-center flex flex-col items-center">
+                <img 
+                  src={LUKAS_IMG} 
+                  alt={t.aboutUs.founderTwoName} 
+                  className="w-32 h-32 rounded-full mb-6 object-cover shadow-md" 
+                />
+                <h4 className="text-xl font-bold text-gray-900">{t.aboutUs.founderTwoName}</h4>
+                <p className="text-primary font-medium mb-3">{t.aboutUs.founderTwoTitle}</p>
+                <div className="space-y-2 text-sm text-gray-600">
+                  <a href="tel:+491747515021" className="flex items-center justify-center hover:text-primary transition-colors">
+                    <Phone size={14} className="mr-2" /> +49 174 7515021
+                  </a>
+                  <a href="mailto:lukas@vitera.it" className="flex items-center justify-center hover:text-primary transition-colors">
+                    <Mail size={14} className="mr-2" /> lukas@vitera.it
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Stats Section */}
       <div className="py-16 bg-gradient-to-br from-primary to-primary/90 text-white relative overflow-hidden">
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1097,10 +1177,16 @@ function App() {
                     </button>
 
                     {submitStatus === 'success' && (
-                      <p className="text-sm text-green-600 mt-2 text-center">Message sent successfully!</p>
+                      <div className="mt-4 p-3 bg-green-100 border border-green-400 text-green-700 rounded-md flex items-center space-x-2">
+                        <CheckCircle size={20} className="text-green-600" />
+                        <p className="text-sm font-medium">Message sent successfully! We'll be in touch soon.</p>
+                      </div>
                     )}
                     {submitStatus === 'error' && (
-                      <p className="text-sm text-red-600 mt-2 text-center">Something went wrong. Please try again.</p>
+                      <div className="mt-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded-md flex items-center space-x-2">
+                        <AlertTriangle size={20} className="text-red-600" />
+                        <p className="text-sm font-medium">Something went wrong. Please check your details and try again.</p>
+                      </div>
                     )}
                   </form>
                 </div>
@@ -1185,45 +1271,12 @@ function App() {
 
             <div>
               <h3 className="text-sm font-semibold text-gray-300 tracking-wider uppercase mb-4">
-                {t.footer.solutions}
-              </h3>
-              <ul className="space-y-3">
-                <li>
-                  <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
-                    {t.footer.links.solutions.talentMatching}
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
-                    {t.footer.links.solutions.contractManagement}
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
-                    {t.footer.links.solutions.skillVerification}
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
-                    {t.footer.links.solutions.projectManagement}
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="text-sm font-semibold text-gray-300 tracking-wider uppercase mb-4">
                 {t.footer.company}
               </h3>
               <ul className="space-y-3">
                 <li>
                   <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
                     {t.footer.links.company.about}
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
-                    {t.footer.links.company.contact}
                   </a>
                 </li>
               </ul>
